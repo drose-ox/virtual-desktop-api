@@ -1,0 +1,24 @@
+{
+  "name": "Virtual Desktop API",
+  "description": "Virtual Desktop API",
+  "version": "0.0.1",
+  "author": "Dominic Rose - OXiane",
+  "private": true,
+  "dependencies": {
+    "async": "^2.0.0-rc.4",
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "install": "^0.7.3",
+    "lodash": "^4.12.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "mysql": "^2.10.2",
+    "npm": "^3.9.0",
+    "request": "^2.72.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {},
+  "engine": "node >= 4.2.2"
+}

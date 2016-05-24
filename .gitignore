@@ -1,0 +1,16 @@
+/log/
+
+# user files
+/*.sublime-*
+sftp-config.json
+
+# node, npm
+/node_modules/
+/npm-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.lnk
