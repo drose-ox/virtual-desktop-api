@@ -1,0 +1,16 @@
+#!/bin/bash
+
+APP_NAME=virtual-desktop-api
+APP_MAIN=app/app.js
+MIN_UPTIME=3
+SPIN_SLEEP_TIME=3
+
+forever start \
+  --minUptime $((MIN_UPTIME*1000)) \
+  --spinSleepTime $((SPIN_SLEEP_TIME*1000)) \
+  -a \
+  --uid $APP_NAME \
+  -l $APP_NAME.log \
+  $APP_MAIN
+forever list
+tail -f -n0 ~/.forever/$APP_NAME.log

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+APP_MAIN=app/app.js
+SPIN_SLEEP_TIME=3
+
+while test 1; do
+  LAST=`date +%s`
+  if node $APP_MAIN; then
+    MSG="node process exited cleanly, restarting"
+  else
+    MSG="node process exited with status 1, restarting"
+  fi
+  NOW=`date +%s`
+  DELTA=`expr $NOW - $LAST`
+  if test $DELTA -lt $SPIN_SLEEP_TIME; then
+    WAIT=`expr $SPIN_SLEEP_TIME - $DELTA`
+    echo -n "[$MSG in ${WAIT}s… "
+    sleep $WAIT
+    echo 'restarting]'
+  else
+    echo "[$MSG restarting]"
+  fi
+done

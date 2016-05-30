@@ -18,7 +18,7 @@ constants.db = require('./lib/db');
 constants.params = require('./lib/params');
 
 constants.env = process.env.NODE_ENV || 'development';
-constants.serverPort = 8080;
+constants.serverPort = 3000;
 
 const log = constants.log;
 const env = constants.env;

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+APP_NAME=virtual-desktop-api
+
+forever restart virtual-desktop-api
+forever list
