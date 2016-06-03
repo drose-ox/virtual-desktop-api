@@ -1,8 +1,11 @@
 #!/bin/bash
 
+APP_NAME=virtual-desktop-api
 APP_MAIN=app/app.js
 SPIN_SLEEP_TIME=3
 
+forever stop $APP_NAME
+forever list
 while test 1; do
   LAST=`date +%s`
   if node $APP_MAIN; then

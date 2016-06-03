@@ -42,9 +42,12 @@ app.use(methodOverride());
 app.use(morgan('\u001b[90m:method :url - \u001b[31m:response-time ms\u001b[90m \u001b[0m'));
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type,token,memberid');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    next();
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,X-HTTP-Method-Override,Accept,Content-Type');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    if (req.method === 'OPTIONS') {
+        return res.end();
+    }
+    return next();
 });
 app.use(compression());
 router.init(app);

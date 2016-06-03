@@ -2,5 +2,5 @@
 
 APP_NAME=virtual-desktop-api
 
-forever restart virtual-desktop-api
+forever restart $APP_NAME
 forever list

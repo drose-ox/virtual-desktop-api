@@ -10,7 +10,10 @@ module.exports = function(req, res, next) {
         var login = params.ensureType('string', req, 'body', 'login');
         var password = params.ensureType('string', req, 'body', 'password');
     } catch(err) {
-        return next(err);
+        return res.status(400).json({
+            error_code: 'E_BAD_REQUEST',
+            error_message: err.message,
+        });
     }
     var version = 0;
     var connection = null;
@@ -48,7 +51,7 @@ module.exports = function(req, res, next) {
             utl_version: version,
             crb_id: corbeille.crb_id,
         };
-        return connection.commit()
+        return connection.commit();
     })
     .then(r => res.status(201).json(user))
     .catch(err => {
